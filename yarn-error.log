@@ -1,0 +1,97 @@
+Arguments: 
+  /usr/local/bin/node /Users/jhardy/.yarn/bin/yarn.js add ;
+
+PATH: 
+  /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/jhardy/projects/form-recoil/node_modules/.bin:/Users/jhardy/.pyenv/shims:/Users/jhardy/.yarn/bin:/Users/jhardy/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/jhardy/.pyenv/shims:/Users/jhardy/.yarn/bin:/Users/jhardy/.config/yarn/global/node_modules/.bin
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.16.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npmjs.org/;: Not found
+      at Request.params.callback [as _callback] (/Users/jhardy/.yarn/lib/cli.js:66975:18)
+      at Request.self.callback (/Users/jhardy/.yarn/lib/cli.js:140727:22)
+      at Request.emit (events.js:310:20)
+      at Request.<anonymous> (/Users/jhardy/.yarn/lib/cli.js:141699:10)
+      at Request.emit (events.js:310:20)
+      at IncomingMessage.<anonymous> (/Users/jhardy/.yarn/lib/cli.js:141621:12)
+      at Object.onceWrapper (events.js:416:28)
+      at IncomingMessage.emit (events.js:322:22)
+      at endReadableNT (_stream_readable.js:1187:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+npm manifest: 
+  {
+    "name": "form-recoil",
+    "version": "1.0.0",
+    "description": "A recoil based form example",
+    "main": "index.js",
+    "scripts": {
+      "lint": "eslint src/**/*.ts* --fix",
+      "start": "parcel ./src/index.html --port 1334 --open",
+      "stubs": "node ./stubby/index.js",
+      "build": "parcel build ./src/index.html --public-url '/items'",
+      "test": "npm run lint && jest --coverage",
+      "test-dev": "jest"
+    },
+    "staticFiles": {
+      "staticPath": "public",
+      "watcherGlob": "**"
+    },
+    "keywords": [
+      "parcel",
+      "react",
+      "typescript"
+    ],
+    "author": "John Hardy <“jh@lagado.com”> (https://www.lagado.com)",
+    "license": "MIT",
+    "dependencies": {
+      "@types/recoil": "0.0.0",
+      "formik": "^2.1.4",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1",
+      "react-router-dom": "^5.2.0",
+      "react-transition-group": "^4.4.1",
+      "recoil": "0.0.8",
+      "styled-components": "^4.4.1"
+    },
+    "devDependencies": {
+      "@testing-library/jest-dom": "^4.2.4",
+      "@testing-library/react": "^9.5.0",
+      "@types/fetch-mock": "^7.3.2",
+      "@types/jest": "^24.9.1",
+      "@types/node": "^12.12.41",
+      "@types/react": "^16.9.35",
+      "@types/react-dom": "^16.9.8",
+      "@types/react-router-dom": "^5.1.5",
+      "@types/styled-components": "^4.4.3",
+      "@types/webpack-env": "^1.15.2",
+      "@typescript-eslint/eslint-plugin": "^2.34.0",
+      "@typescript-eslint/parser": "^2.34.0",
+      "eslint": "^6.8.0",
+      "eslint-config-prettier": "^6.11.0",
+      "eslint-plugin-prettier": "^3.1.3",
+      "eslint-plugin-react": "^7.20.0",
+      "jest": "^26.0.1",
+      "node-fetch": "^2.6.0",
+      "parcel-bundler": "^1.12.4",
+      "parcel-plugin-html-externals": "^0.1.2",
+      "parcel-plugin-static-files-copy": "^2.4.1",
+      "prettier": "^1.19.1",
+      "stubby": "^4.1.1",
+      "ts-jest": "^26.1.0",
+      "typescript": "^3.9.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
