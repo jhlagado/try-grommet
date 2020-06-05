@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
-import styled from 'styled-components';
 
 import { ScrollToTop } from '../utils';
+import { Box } from 'grommet';
 
-const BaseSimpleForm = () => {
+export const SimpleForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const handleChangeEmail = (event: any) => setEmail(event.target.value);
@@ -29,13 +29,9 @@ const BaseSimpleForm = () => {
     }
   };
   return (
-    <div id="main">
+    <>
       <ScrollToTop />
-      <div className="header">
-        <h1>Simple Form</h1>
-        <h2>a not very complicated form</h2>
-      </div>
-      <div className="content">
+      <Box width="medium">
         <form className="pure-form pure-form-stacked">
           <fieldset>
             <legend>A stacked form</legend>
@@ -76,10 +72,7 @@ const BaseSimpleForm = () => {
             </button>
           </fieldset>
         </form>
-      </div>
-    </div>
+      </Box>
+    </>
   );
 };
-
-export const SimpleForm = styled(BaseSimpleForm)``;
-SimpleForm.displayName = 'SimpleForm';

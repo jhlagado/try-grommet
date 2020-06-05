@@ -18,6 +18,12 @@ export const userSession = {
 export const items = [
   {
     active: true,
+    label: 'Grommet Form',
+    path: '/grommet-form',
+    exact: true,
+  },
+  {
+    active: true,
     label: 'Formik Form',
     path: '/formik-form',
     exact: true,

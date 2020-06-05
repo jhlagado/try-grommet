@@ -1,13 +1,12 @@
 import * as React from 'react';
-import styled from 'styled-components';
-import { Stylable } from '../types';
 import { ScrollToTop } from '../utils';
+import { Box } from 'grommet';
 
-const BaseInfo = ({ className }: Stylable) => {
+export const Info = () => {
   return (
-    <div className={`${className} info`}>
+    <>
       <ScrollToTop />
-      <div className="header">
+      <Box width="medium">
         <h1>John Hardy</h1>
         <h2>Full-stack developer</h2>
         <div className="info-line">
@@ -19,19 +18,7 @@ const BaseInfo = ({ className }: Stylable) => {
         <div className="info-line">
           GitHub: <a href="https://github.com/jhlagado">jhlagado</a>
         </div>
-      </div>
-    </div>
+      </Box>
+    </>
   );
 };
-
-export const Info = styled(BaseInfo)`
-  .header {
-    padding-bottom: 40rem;
-  }
-
-  .info-line {
-    margin-bottom: 1rem;
-  }
-`;
-
-Info.displayName = 'Info';

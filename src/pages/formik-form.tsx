@@ -1,22 +1,18 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { ScrollToTop } from '../utils';
+import { Box } from 'grommet';
 
 interface FormErrors {
   email?: string;
   password?: string;
 }
 
-const BaseFormikForm = () => {
+export const FormikForm = () => {
   return (
-    <div id="main">
+    <>
       <ScrollToTop />
-      <div className="header">
-        <h1>Formik Form</h1>
-        <h2>a Formik based form</h2>
-      </div>
-      <div className="content">
+      <Box width="medium">
         <Formik
           initialValues={{
             email: '',
@@ -84,10 +80,7 @@ const BaseFormikForm = () => {
             </Form>
           )}
         </Formik>
-      </div>
-    </div>
+      </Box>
+    </>
   );
 };
-
-export const FormikForm = styled(BaseFormikForm)``;
-FormikForm.displayName = 'FormikForm';

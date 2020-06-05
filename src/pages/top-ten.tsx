@@ -1,23 +1,18 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
 import { TTStoryList } from '../components/story-lists/tt-story-list';
 import { ScrollToTop } from '../utils';
+import { Box } from 'grommet';
 
-const BaseTopTen = () => {
+export const TopTen = () => {
   return (
-    <div id="main">
+    <>
       <ScrollToTop />
-      <div className="header">
+      <Box width="medium">
         <h1>Hacker News Reader</h1>
         <h2>Top ten stories</h2>
-      </div>
-      <div className="content">
         <TTStoryList />
-      </div>
-    </div>
+      </Box>
+    </>
   );
 };
-
-export const TopTen = styled(BaseTopTen)``;
-TopTen.displayName = 'TopTen';

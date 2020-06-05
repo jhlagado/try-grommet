@@ -20,15 +20,15 @@ import { FirstTen } from './pages/first-ten';
 import { AppHeader } from './components/AppHeader';
 import { SideBar } from './components/SideBar';
 import { userSession, items } from './constants';
+import { GrommetForm } from './pages/grommet-form';
+import { grommet } from 'grommet/themes';
 
 export const App: React.FC<any> = () => {
   const [showSidebar, setShowSidebar] = useState(false);
-
   const handleToggleSidebar = () => setShowSidebar(!showSidebar);
-
   return (
     <Router>
-      <Grommet theme={theme} full>
+      <Grommet theme={grommet} full>
         <ResponsiveContext.Consumer>
           {() => (
             <Box fill>
@@ -47,29 +47,34 @@ export const App: React.FC<any> = () => {
                   />
                 )}
                 <Box flex>
-                  <Switch>
-                    <Route exact path="/recoil-todos">
-                      <RecoilTodos />
-                    </Route>
-                    <Route exact path="/formik-form">
-                      <FormikForm />
-                    </Route>
-                    <Route exact path="/simple-form">
-                      <SimpleForm />
-                    </Route>
-                    <Route path="/top-ten">
-                      <TopTen />
-                    </Route>
-                    <Route path="/first-ten">
-                      <FirstTen />
-                    </Route>
-                    <Route path="/info">
-                      <Info></Info>
-                    </Route>
-                    <Route>
-                      <Redirect to={items[0].path} />
-                    </Route>
-                  </Switch>
+                  <Box fill align="center">
+                    <Switch>
+                      <Route path="/grommet-form">
+                        <GrommetForm />
+                      </Route>
+                      <Route path="/recoil-todos">
+                        <RecoilTodos />
+                      </Route>
+                      <Route path="/formik-form">
+                        <FormikForm />
+                      </Route>
+                      <Route path="/simple-form">
+                        <SimpleForm />
+                      </Route>
+                      <Route path="/top-ten">
+                        <TopTen />
+                      </Route>
+                      <Route path="/first-ten">
+                        <FirstTen />
+                      </Route>
+                      <Route path="/info">
+                        <Info></Info>
+                      </Route>
+                      <Route>
+                        <Redirect to={items[0].path} />
+                      </Route>
+                    </Switch>
+                  </Box>
                 </Box>
               </Box>
             </Box>
