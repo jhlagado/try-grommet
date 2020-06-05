@@ -19,57 +19,7 @@ import { TopTen } from './pages/top-ten';
 import { FirstTen } from './pages/first-ten';
 import { AppHeader } from './components/AppHeader';
 import { SideBar } from './components/SideBar';
-
-const userSession = {
-  user: {
-    name: 'Alan Souza',
-    thumbnail: '//s.gravatar.com/avatar/f850593bdae3cb1c8c535b4acfdfdb98?s=80',
-  },
-  items: [
-    {
-      label: 'Logout',
-      href: '#',
-    },
-  ],
-};
-
-<RecoilTodos />;
-
-const items = [
-  {
-    active: true,
-    label: 'Recoil Todos',
-    path: '/recoil-todos',
-    exact: true,
-  },
-  {
-    active: true,
-    label: 'Formik Form',
-    path: '/formik-form',
-    exact: true,
-  },
-  {
-    active: true,
-    label: 'Simple Form',
-    path: '/simple-form',
-    exact: true,
-  },
-  {
-    active: true,
-    label: 'Top Ten',
-    path: '/top-ten',
-  },
-  {
-    active: true,
-    label: 'First ten',
-    path: '/first-ten',
-  },
-  {
-    active: false,
-    label: 'Info',
-    path: '/info',
-  },
-];
+import { userSession, items } from './constants';
 
 export const App: React.FC<any> = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -117,7 +67,7 @@ export const App: React.FC<any> = () => {
                       <Info></Info>
                     </Route>
                     <Route>
-                      <Redirect to="/recoil-todos" />
+                      <Redirect to={items[0].path} />
                     </Route>
                   </Switch>
                 </Box>
