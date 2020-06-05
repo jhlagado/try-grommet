@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { Comment } from './comment';
-import { StoryItem, Stylable, CommentItem } from '../types';
-import { getCommentItem } from '../apis';
-import { formatDate } from '../utils';
+import { StoryItem, Stylable, CommentItem } from '../../types';
+import { getCommentItem } from '../../apis';
+import { formatDate } from '../../utils';
 
 interface StoryProps extends Stylable {
   item: StoryItem;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { getTopStoryIds, getStoryItem } from '../apis';
-import { Story } from './story';
+import { getTopStoryIds, getStoryItem } from '../../apis';
+import { Story } from './Story';
 import styled from 'styled-components';
-import { StoryItem, Stylable } from '../types';
+import { StoryItem, Stylable } from '../../types';
 
 const compareFn = (a: StoryItem, b: StoryItem) => b.score - a.score;
 

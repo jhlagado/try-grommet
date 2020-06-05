@@ -5,9 +5,9 @@ import {
   waitForElement,
   fireEvent,
 } from '@testing-library/react';
-import { Story } from './story';
-import { oneCommentItem, oneStoryItem } from '../fixtures';
-import { getCommentItem } from '../apis';
+import { Story } from './Story';
+import { oneCommentItem, oneStoryItem } from '../../fixtures';
+import { getCommentItem } from '../../apis';
 
 jest.mock('../apis', () => ({
   getCommentItem: jest.fn(),

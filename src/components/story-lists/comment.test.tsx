@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, cleanup, waitForElement } from '@testing-library/react';
 import { Comment } from './comment';
-import { oneCommentItem } from '../fixtures';
+import { oneCommentItem } from '../../fixtures';
 
 beforeEach(() => {
   cleanup();

@@ -1,24 +1,9 @@
 import * as React from 'react';
-import {
-  Box,
-  Button,
-  Heading,
-  Grommet,
-  Layer,
-  ResponsiveContext,
-  Text,
-  TextInput,
-} from 'grommet';
-import {
-  Menu,
-  FormClose,
-  FormSearch,
-} from 'grommet-icons';
+import { Box, Grommet, ResponsiveContext } from 'grommet';
+import { Menu } from 'grommet-icons';
 import { useState } from 'react';
 
 import {
-  matchPath,
-  withRouter,
   BrowserRouter as Router,
   Switch,
   Route,
@@ -32,11 +17,13 @@ import { FormikForm } from './pages/formik-form';
 import { SimpleForm } from './pages/simple-form';
 import { TopTen } from './pages/top-ten';
 import { FirstTen } from './pages/first-ten';
+import { AppHeader } from './components/AppHeader';
+import { SideBar } from './components/SideBar';
 
 const userSession = {
   user: {
     name: 'Alan Souza',
-    thumbnail: '//s.gravatar.com/avatar/b226da5c619b18b44eb95c30be393953?s=80',
+    thumbnail: '//s.gravatar.com/avatar/f850593bdae3cb1c8c535b4acfdfdb98?s=80',
   },
   items: [
     {
@@ -46,181 +33,43 @@ const userSession = {
   ],
 };
 
-export const Avatar = ({ name, url, ...rest }: any) => (
-  <Box
-    a11yTitle={`${name} avatar`}
-    height="avatar"
-    width="avatar"
-    round="full"
-    background={`url(${url})`}
-    {...rest}
-  />
-);
-
-export const UserMenu = ({ user = {}, items = [], ...rest }: any) => (
-  <Menu
-    dropAlign={{ top: 'bottom', right: 'right' }}
-    icon={false}
-    items={items.map((item: any) => ({
-      ...item,
-      label: <Text size="small">{item.label}</Text>,
-      onClick: () => {
-        return;
-      }, // no-op
-    }))}
-    label={<Avatar name={user.name} url={user.thumbnail} />}
-    {...rest}
-  />
-);
-
-export const AppHeader = ({
-  appName,
-  appIcon,
-  userSession,
-  onToggleSidebar,
-}: any) => (
-  <Box
-    tag="header"
-    direction="row"
-    background="brand"
-    align="center"
-    elevation="medium"
-    justify="between"
-    responsive={false}
-    pad={!userSession ? { vertical: 'xsmall' } : undefined}
-    style={{ position: 'relative' }}
-  >
-    <Button onClick={onToggleSidebar}>
-      <Box
-        flex={false}
-        direction="row"
-        align="center"
-        margin={{ left: 'small' }}
-      >
-        {appIcon}
-        <Heading level="4" margin={{ left: 'small', vertical: 'none' }}>
-          {appName}
-        </Heading>
-      </Box>
-    </Button>
-
-    <Box direction="row" align="center">
-      <Box
-        margin={{ left: 'medium' }}
-        round="xsmall"
-        background={{ color: 'white', opacity: 'weak' }}
-        direction="row"
-        align="center"
-        pad={{ horizontal: 'small' }}
-      >
-        <FormSearch color="white" />
-        <TextInput plain placeholder="Search" type="search" />
-      </Box>
-      {userSession && (
-        <UserMenu
-          alignSelf="center"
-          user={userSession.user}
-          items={userSession.items}
-        />
-      )}
-    </Box>
-  </Box>
-);
+<RecoilTodos />;
 
 const items = [
   {
     active: true,
-    label: 'Home',
-    path: '/',
+    label: 'Recoil Todos',
+    path: '/recoil-todos',
     exact: true,
   },
   {
     active: true,
-    label: 'Servers',
-    path: '/servers',
+    label: 'Formik Form',
+    path: '/formik-form',
+    exact: true,
   },
   {
     active: true,
-    label: 'Users',
-    path: '/users',
+    label: 'Simple Form',
+    path: '/simple-form',
+    exact: true,
+  },
+  {
+    active: true,
+    label: 'Top Ten',
+    path: '/top-ten',
+  },
+  {
+    active: true,
+    label: 'First ten',
+    path: '/first-ten',
   },
   {
     active: false,
-    label: 'Settings',
-    path: '/settings',
+    label: 'Info',
+    path: '/info',
   },
 ];
-
-const BaseRoutedButton = ({
-  active,
-  exact,
-  match,
-  location,
-  history,
-  path,
-  strict,
-  ...rest
-}: any) => {
-  const handleClick = (event: any) => {
-    event.preventDefault();
-    history.push(path);
-  };
-
-  const pathMatch = matchPath(location.pathname, { exact, path, strict });
-  return (
-    <Button active={active && !!pathMatch} {...rest} onClick={handleClick} />
-  );
-};
-
-export const RoutedButton = withRouter(BaseRoutedButton);
-
-export const MenuButton = ({ label, ...rest }: any) => {
-  return (
-    <RoutedButton hoverIndicator="light-4" {...rest}>
-      <Box pad="small" gap="xsmall" justify="center">
-        <Text>{label}</Text>
-      </Box>
-    </RoutedButton>
-  );
-};
-
-export const Sidebar = ({
-  context,
-  items = [],
-  onToggleSidebar,
-  ...rest
-}: any) => {
-  // const contextType = ResponsiveContext;
-  const size = context;
-  const SidebarComponent = size === 'small' ? Layer : Box;
-  const sidebarProps =
-    size === 'small'
-      ? { full: true }
-      : {
-          fill: 'vertical',
-          width: 'small',
-          background: 'light-2',
-          elevation: 'xsmall',
-        };
-  return (
-    <SidebarComponent {...sidebarProps} {...rest}>
-      {size === 'small' && (
-        <Box align="end">
-          <Button icon={<FormClose />} onClick={onToggleSidebar} />
-        </Box>
-      )}
-      {items.map(({ active, exact, label, path }: any) => (
-        <MenuButton
-          active={active}
-          exact={exact}
-          path={path}
-          label={label}
-          key={label}
-        />
-      ))}
-    </SidebarComponent>
-  );
-};
 
 export const App: React.FC<any> = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -241,7 +90,7 @@ export const App: React.FC<any> = () => {
               />
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
                 {showSidebar && (
-                  <Sidebar
+                  <SideBar
                     appIcon={<Menu color="brand" />}
                     items={items}
                     onToggleSidebar={handleToggleSidebar}
@@ -280,13 +129,3 @@ export const App: React.FC<any> = () => {
     </Router>
   );
 };
-App.displayName = 'App';
-
-/*
-
-         <div>
-           <Switch>
-           </Switch>
-         </div>
-       </Router>
-       */

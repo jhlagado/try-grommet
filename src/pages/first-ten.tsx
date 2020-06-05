@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { FTStoryList } from '../components/ft-story-list';
+import { FTStoryList } from '../components/story-lists/ft-story-list';
 import { ScrollToTop } from '../utils';
 
 const BaseFirstTen = () => {

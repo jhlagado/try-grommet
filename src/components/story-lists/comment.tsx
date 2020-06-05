@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { CommentItem, Stylable } from '../types';
+import { CommentItem, Stylable } from '../../types';
 import styled from 'styled-components';
-import { formatDate } from '../utils';
+import { formatDate } from '../../utils';
 
 interface CommentProps extends Stylable {
   item: CommentItem;
